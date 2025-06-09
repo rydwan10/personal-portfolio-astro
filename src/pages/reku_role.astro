@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import Layout from "../layouts/Layout.astro";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Threads from "@/bits/Threads/Threads";
+import { Image } from "astro:assets";
+import reku from "@/images/reku_hero.png";
 ---
 
 <Layout title="Reku Role - Muhammad Rydwan">
@@ -18,8 +20,8 @@ import Threads from "@/bits/Threads/Threads";
             />
         </div>
         <div class="w-full md:w-auto mb-6 md:mb-0">
-            <img
-                src="/src/images/reku_hero.png"
+            <Image
+                src={reku}
                 alt="Reku.id"
                 class="w-full max-w-[500px] mx-auto md:mx-0"
             />

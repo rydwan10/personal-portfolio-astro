@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import Layout from "../layouts/Layout.astro";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Threads from "@/bits/Threads/Threads";
+import { Image } from "astro:assets";
+
+import bions from "@/images/bions.png";
 ---
 
 <Layout title="BNI Sekuritas Role - Muhammad Rydwan">
@@ -18,8 +21,8 @@ import Threads from "@/bits/Threads/Threads";
             />
         </div>
         <div class="w-full md:w-auto mb-6 md:mb-0">
-            <img
-                src="/src/images/bions.png"
+            <Image
+                src={bions}
                 alt="BNI Sekuritas"
                 class="w-full max-w-[560px] mx-auto md:mx-0"
             />
