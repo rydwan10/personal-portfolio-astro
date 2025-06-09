@@ -1,6 +1,7 @@
 ---
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
+import SpotlightCard from "@/bits/SpotlightCard/SpotlightCard";
 
 const contactInfo = {
     email: "your.email@example.com",
@@ -31,81 +32,37 @@ const contactInfo = {
         class="mx-auto max-w-4xl py-12 px-4 sm:px-8 md:px-12 lg:px-24 space-y-4"
     >
         <h2
-            class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8"
+            class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center"
         >
-            Contact
+            Contact 📞
         </h2>
-        <div class="grid gap-6 md:grid-cols-2">
-            <Card>
-                <CardHeader>
-                    <CardTitle>Get in Touch</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div class="space-y-4">
-                        <div>
-                            <p
-                                class="text-sm font-medium text-muted-foreground"
-                            >
-                                Email
-                            </p>
-                            <a
-                                href={`mailto:${contactInfo.email}`}
-                                class="text-sm hover:underline"
-                            >
-                                {contactInfo.email}
-                            </a>
-                        </div>
-                        <div>
-                            <p
-                                class="text-sm font-medium text-muted-foreground"
-                            >
-                                Phone
-                            </p>
-                            <a
-                                href={`tel:${contactInfo.phone}`}
-                                class="text-sm hover:underline"
-                            >
-                                {contactInfo.phone}
-                            </a>
-                        </div>
-                        <div>
-                            <p
-                                class="text-sm font-medium text-muted-foreground"
-                            >
-                                Location
-                            </p>
-                            <p class="text-sm">{contactInfo.location}</p>
-                        </div>
+        <div class="grid gap-4 md:grid-cols-2">
+            <SpotlightCard client:load spotlightColor="rgba(0, 229, 255, 0.2)">
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2">
+                        <i class="ri-mail-line text-xl"></i>
+                        <a
+                            href="mailto:rydwan.dev@gmail.com"
+                            class="text-lg hover:underline"
+                        >
+                            rydwan.dev@gmail.com
+                        </a>
                     </div>
-                </CardContent>
-            </Card>
-            <Card>
-                <CardHeader>
-                    <CardTitle>Connect</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div class="flex flex-wrap gap-4">
-                        {
-                            contactInfo.social.map((social) => (
-                                <Button variant="outline" asChild>
-                                    <a
-                                        href={social.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        {social.name}
-                                    </a>
-                                </Button>
-                            ))
-                        }
-                    </div>
-                    <div class="mt-6">
-                        <Button asChild>
-                            <a href="/resume.pdf" download> Download CV </a>
-                        </Button>
-                    </div>
-                </CardContent>
-            </Card>
+                </div>
+            </SpotlightCard>
+
+            <SpotlightCard client:load spotlightColor="rgba(0, 229, 255, 0.2)">
+                <div class="flex items-center gap-2">
+                    <i class="ri-linkedin-box-line text-xl"></i>
+                    <a
+                        href="https://linkedin.com/in/muhammad-rydwan/"
+                        target="_blank"
+                        class="text-lg hover:underline"
+                    >
+                        Muhammad Rydwan
+                    </a>
+                </div>
+            </SpotlightCard>
         </div>
     </div>
 </section>

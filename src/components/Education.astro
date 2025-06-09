@@ -9,6 +9,7 @@ import {
 } from "./ui/card";
 import Threads from "@/bits/Threads/Threads";
 import { Image } from "astro:assets";
+import AnimatedContent from "@/bits/AnimatedContent/AnimatedContent";
 
 import binus from "@/images/binus.png";
 import dumbways from "@/images/dumbways.png";
@@ -46,41 +47,45 @@ const education = [
     <div
         class="mx-auto max-w-4xl py-12 px-4 sm:px-8 md:px-12 lg:px-24 space-y-4"
     >
-        <h2
-            class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8"
-        >
-            Education 🎓
-        </h2>
-        <div class="grid gap-8">
+        <AnimatedContent client:load>
+            <h2
+                class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center"
+            >
+                Education 🎓
+            </h2>
+        </AnimatedContent>
+        <div class="grid md:grid-cols-2 gap-8">
             {
                 education.map((edu) => (
-                    <SpotlightCard
-                        spotlightColor="rgba(0, 229, 255, 0.2)"
-                        client:load
-                        className="group hover:shadow-lg shadow-sky-200 dark:shadow-sky-900 transition-transform duration-300"
-                    >
-                        <div>
-                            <div class="px-4 w-fit py-2 bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl text-lg flex items-center justify-center mb-4">
-                                <Image
-                                    src={edu.logo}
-                                    alt={edu.institution}
-                                    class="w-18"
-                                />
-                            </div>
-                            <div class="flex flex-col space-y-1.5 pb-6">
-                                <h3 class="text-2xl font-semibold leading-none tracking-tight">
-                                    {edu.institution}
-                                </h3>
+                    <AnimatedContent client:load>
+                        <SpotlightCard
+                            spotlightColor="rgba(0, 229, 255, 0.2)"
+                            client:load
+                            className="h-full"
+                        >
+                            <div>
+                                <div class="px-4 w-fit py-2 bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl text-lg flex items-center justify-center mb-4">
+                                    <Image
+                                        src={edu.logo}
+                                        alt={edu.institution}
+                                        class="h-24 w-auto"
+                                    />
+                                </div>
+                                <div class="flex flex-col space-y-1.5 pb-6">
+                                    <h3 class="text-2xl font-semibold leading-none tracking-tight">
+                                        {edu.institution}
+                                    </h3>
+                                    <p class="text-sm text-muted-foreground">
+                                        {edu.degree} • {edu.duration} •{" "}
+                                        {edu.details}
+                                    </p>
+                                </div>
                                 <p class="text-sm text-muted-foreground">
-                                    {edu.degree} • {edu.duration} •{" "}
-                                    {edu.details}
+                                    {edu.location}
                                 </p>
                             </div>
-                            <p class="text-sm text-muted-foreground">
-                                {edu.location}
-                            </p>
-                        </div>
-                    </SpotlightCard>
+                        </SpotlightCard>
+                    </AnimatedContent>
                 ))
             }
         </div>

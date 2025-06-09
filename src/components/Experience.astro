@@ -1,5 +1,6 @@
 ---
 import SpotlightCard from "@/bits/SpotlightCard/SpotlightCard";
+import AnimatedContent from "@/bits/AnimatedContent/AnimatedContent";
 import { Button } from "./ui/button";
 import { ArrowRight, FileDown } from "lucide-react";
 import { Image } from "astro:assets";
@@ -59,63 +60,66 @@ const experiences = [
     <div
         class="mx-auto max-w-4xl py-12 px-4 sm:px-8 md:px-12 lg:px-24 space-y-4"
     >
-        <h2
-            class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8"
-        >
-            Experience 💼
-        </h2>
+        <AnimatedContent client:load>
+            <h2
+                class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center"
+            >
+                Experience 💼
+            </h2>
+        </AnimatedContent>
         <div class="grid gap-8">
             {
-                experiences.map((exp) => (
-                    <SpotlightCard
-                        spotlightColor="rgba(0, 229, 255, 0.2)"
-                        client:load
-                        className="group  hover:shadow-lg shadow-sky-200 dark:shadow-sky-900 transition-transform duration-300"
-                    >
-                        <div>
-                            <div class="flex flex-col space-y-1.5 pb-6">
-                                <a
-                                    href={exp.companyUrl}
-                                    target="_blank"
-                                    class="w-fit"
-                                >
-                                    <div class="flex items-center gap-2">
-                                        <Image
-                                            src={exp.logo}
-                                            alt={exp.company}
-                                            class="w-32"
-                                        />
-                                    </div>
-                                </a>
-                                <h3 class="text-2xl font-semibold leading-none tracking-tight">
-                                    {exp.role}
-                                </h3>
-                                <p class="text-sm text-muted-foreground">
-                                    {exp.company} • {exp.duration} •{" "}
-                                    {exp.location}
-                                </p>
-                            </div>
-                            <div class="p-0">
-                                <ul class="list-disc space-y-2 pl-4 text-sm text-muted-foreground">
-                                    {exp.achievements.map((achievement) => (
-                                        <li>{achievement}</li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div class="flex justify-end mt-4">
-                                <Button
-                                    variant="outline"
-                                    className="bg-white/50 backdrop-blur-none cursor-pointer"
-                                >
-                                    <a href={exp.role_url}>
-                                        What i do in this role?
+                experiences.map((exp, idx) => (
+                    <AnimatedContent client:load>
+                        <SpotlightCard
+                            spotlightColor="rgba(0, 229, 255, 0.2)"
+                            client:load
+                        >
+                            <div>
+                                <div class="flex flex-col space-y-1.5 pb-6">
+                                    <a
+                                        href={exp.companyUrl}
+                                        target="_blank"
+                                        class="w-fit"
+                                    >
+                                        <div class="flex items-center gap-2">
+                                            <Image
+                                                src={exp.logo}
+                                                alt={exp.company}
+                                                class="w-32"
+                                            />
+                                        </div>
                                     </a>
-                                    <ArrowRight />
-                                </Button>
+                                    <h3 class="text-2xl font-semibold leading-none tracking-tight">
+                                        {exp.role}
+                                    </h3>
+                                    <p class="text-sm text-muted-foreground">
+                                        {exp.company} • {exp.duration} •{" "}
+                                        {exp.location}
+                                    </p>
+                                </div>
+                                <div class="p-0">
+                                    <ul class="list-disc space-y-2 pl-4 text-sm text-muted-foreground">
+                                        {exp.achievements.map((achievement) => (
+                                            <li>{achievement}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div class="flex justify-end mt-4">
+                                    <Button
+                                        variant="outline"
+                                        className="bg-white/50 backdrop-blur-none cursor-pointer"
+                                    >
+                                        <a href={exp.role_url}>
+                                            What i do in this role?
+                                        </a>
+                                        <ArrowRight />
+                                    </Button>
+                                </div>
                             </div>
-                        </div>
-                    </SpotlightCard>
+                        </SpotlightCard>
+                    </AnimatedContent>
                 ))
             }
         </div>

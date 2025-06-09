@@ -8,6 +8,8 @@ import Experience from "../components/Experience.astro";
 import Skills from "../components/Skills.astro";
 import Education from "../components/Education.astro";
 import Contact from "../components/Contact.astro";
+import Footer from "@/components/Footer.astro";
+import Waves from "@/bits/Waves/Waves";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -15,12 +17,13 @@ import Contact from "../components/Contact.astro";
 
 <html lang="en">
 	<Layout title="Muhammad Rydwan - Software Engineer Portfolio">
+		<!-- <Waves client:load lineColor="rgba(0, 229, 255, 0.4)" /> -->
 		<main>
 			<Hero />
 			<Experience />
 			<Skills />
 			<Education />
-			<Contact />
+			<Footer />
 		</main>
 	</Layout>
 </html>
