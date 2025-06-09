@@ -1,0 +1,81 @@
+---
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const { title, description = "Muhammad Rydwan - Software Engineer Portfolio" } =
+    Astro.props;
+
+import "../styles/global.css";
+import Header from "@/components/Header.astro";
+---
+
+<!doctype html>
+<html lang="en" class="">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+        <title>{title}</title>
+    </head>
+    <body class="min-h-screen bg-background font-sans antialiased">
+        <Header />
+
+        <slot />
+    </body>
+    <script is:inline>
+        function setDarkMode(document) {
+            const getThemePreference = () => {
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("theme")
+                ) {
+                    return localStorage.getItem("theme");
+                }
+                return window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "theme-light";
+            };
+            const isDark = getThemePreference() === "dark";
+            document.documentElement.classList[isDark ? "add" : "remove"](
+                "dark",
+            );
+
+            if (typeof localStorage !== "undefined") {
+                const observer = new MutationObserver(() => {
+                    const isDark =
+                        document.documentElement.classList.contains("dark");
+                    localStorage.setItem(
+                        "theme",
+                        isDark ? "dark" : "theme-light",
+                    );
+                });
+                observer.observe(document.documentElement, {
+                    attributes: true,
+                    attributeFilter: ["class"],
+                });
+            }
+        }
+
+        setDarkMode(document);
+
+        document.addEventListener("astro:before-swap", (ev) => {
+            // Pass the incoming document to set the theme on it
+            setDarkMode(ev.newDocument);
+        });
+    </script>
+</html>
+
+<style is:global>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>

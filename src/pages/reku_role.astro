@@ -1,0 +1,83 @@
+---
+import { Button } from "@/components/ui/button";
+import Layout from "../layouts/Layout.astro";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import Threads from "@/bits/Threads/Threads";
+---
+
+<Layout title="Reku Role - Muhammad Rydwan">
+    <div
+        class="flex flex-col md:flex-row justify-between items-center mx-auto max-w-4xl p-4"
+    >
+        <div class="absolute top-0 left-0 w-full h-full z-[-1]">
+            <Threads
+                client:load
+                amplitude={2.5}
+                distance={0.2}
+                color={[1, 3, 29]}
+            />
+        </div>
+        <div class="w-full md:w-auto mb-6 md:mb-0">
+            <img
+                src="/src/images/reku_hero.png"
+                alt="Reku.id"
+                class="w-full max-w-[500px] mx-auto md:mx-0"
+            />
+        </div>
+        <div class="flex flex-col items-center md:items-end">
+            <h2 class="text-3xl font-bold mb-4 text-end">Reku Mobile</h2>
+            <a
+                href="https://reku.id"
+                class="text-xl font-semibold mb-4 text-end text-muted-foreground flex items-center gap-2"
+            >
+                Go to Reku.id Website
+                <ArrowRight />
+            </a>
+            <div
+                class="mb-4 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-lg flex items-center"
+            >
+                <i class="devicon-flutter-plain colored mr-2 text-xl"></i>
+                Flutter
+            </div>
+        </div>
+    </div>
+    <main class="mx-auto max-w-2xl px-4 py-16">
+        <h1 class="text-4xl font-bold mb-6">Reku: My Role & Contributions</h1>
+        <p class="mb-6 text-lg text-muted-foreground">
+            As a <span class="font-semibold">Software Engineer</span> at <span
+                class="font-semibold">Reku.id</span
+            >, I engineered a high-performance Crypto Trading Platform using
+            Flutter, ensuring scalability and reliability across both iOS and
+            Android.
+        </p>
+        <ul class="list-disc pl-6 space-y-3 mb-8">
+            <li>
+                <span class="font-medium">Designed and implemented</span> intuitive
+                user interfaces, collaborating closely with the design team for optimal
+                user experience.
+            </li>
+            <li>
+                <span class="font-medium"
+                    >Integrated secure and efficient APIs</span
+                > for seamless backend communication and real-time trading features.
+            </li>
+            <li>
+                <span class="font-medium"
+                    >Collaborated with the Product Team</span
+                > to integrate business logic and align features with business goals.
+            </li>
+            <li>
+                <span class="font-medium"
+                    >Partnered with cross-functional teams</span
+                > to drive project success and maintain code quality by making the
+                project more structured and improving the quality of existing code,
+                resulting in a faster release cycle.
+            </li>
+        </ul>
+        <p class="text-base text-muted-foreground">
+            My experience at Reku.id strengthened my technical, communication,
+            and teamwork skills, and deepened my passion for building innovative
+            fintech solutions.
+        </p>
+    </main>
+</Layout>

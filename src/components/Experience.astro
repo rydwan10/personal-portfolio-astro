@@ -1,0 +1,123 @@
+---
+import SpotlightCard from "@/bits/SpotlightCard/SpotlightCard";
+import { Button } from "./ui/button";
+import { ArrowRight, FileDown } from "lucide-react";
+import { Image } from "astro:assets";
+import bnis from "@/images/bnis.png";
+import reku from "@/images/reku.png";
+import andal from "@/images/andal.webp";
+
+const experiences = [
+    {
+        logo: bnis,
+        company: "PT BNI Sekuritas",
+        companyUrl: "https://www.bnisekuritas.co.id/",
+        role: "Mobile Developer",
+        duration: "September 2024 - Present",
+        location: "South Jakarta, Indonesia",
+        achievements: [
+            "Contributor and one of Team Lead of new BIONS Mobile App, a trading application built with Flutter.",
+            "Proficient in Flutter, SDLC, and Git for efficient app development.",
+            "Skilled in designing and implementing user-centric trading features.",
+            "Experienced in mentoring teams and driving agile development processes.",
+            "Passionate about building scalable and innovative mobile applications.",
+        ],
+        role_url: "/bnis_role/",
+    },
+    {
+        logo: reku,
+        company: "Reku.id",
+        companyUrl: "https://reku.id/",
+        role: "Mobile Developer",
+        duration: "August 2022 - June 2024",
+        location: "South Jakarta, Indonesia",
+        achievements: [
+            "Contribute to maintain and enhancing new feature on Reku (Rekeningku) crypto trading marketplace mobile application using Flutter",
+            "Developing the Reku (Rekeningku) mobile application",
+            "Contribute to developing new product that Reku will release",
+            "Testing and bug fixing the Reku (Rekeningku) mobile application",
+        ],
+        role_url: "/reku_role/",
+    },
+    {
+        logo: andal,
+        company: "Andal Software",
+        companyUrl: "https://andalsoftware.com/",
+        role: "Fullstack Developer",
+        duration: "February 2021 - July 2022",
+        location: "Central Jakarta, Indonesia",
+        achievements: [
+            "Contribute to developing HRIS Web-based Software called Andal Kharisma using ASP .NET Web API as Service and Angular as Frontend",
+            "Developing API for the Angular Web Frontend and for the Mobile Application called Andal Connect",
+        ],
+        role_url: "/andal_role/",
+    },
+];
+---
+
+<section id="experience" style="scroll-margin-top: 18px;">
+    <div
+        class="mx-auto max-w-4xl py-12 px-4 sm:px-8 md:px-12 lg:px-24 space-y-4"
+    >
+        <h2
+            class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8"
+        >
+            Experience 💼
+        </h2>
+        <div class="grid gap-8">
+            {
+                experiences.map((exp) => (
+                    <SpotlightCard
+                        spotlightColor="rgba(0, 229, 255, 0.2)"
+                        client:load
+                        className="group  hover:shadow-lg shadow-sky-200 dark:shadow-sky-900 transition-transform duration-300"
+                    >
+                        <div>
+                            <div class="flex flex-col space-y-1.5 pb-6">
+                                <a
+                                    href={exp.companyUrl}
+                                    target="_blank"
+                                    class="w-fit"
+                                >
+                                    <div class="flex items-center gap-2">
+                                        <Image
+                                            src={exp.logo}
+                                            alt={exp.company}
+                                            class="w-32"
+                                        />
+                                    </div>
+                                </a>
+                                <h3 class="text-2xl font-semibold leading-none tracking-tight">
+                                    {exp.role}
+                                </h3>
+                                <p class="text-sm text-muted-foreground">
+                                    {exp.company} • {exp.duration} •{" "}
+                                    {exp.location}
+                                </p>
+                            </div>
+                            <div class="p-0">
+                                <ul class="list-disc space-y-2 pl-4 text-sm text-muted-foreground">
+                                    {exp.achievements.map((achievement) => (
+                                        <li>{achievement}</li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div class="flex justify-end mt-4">
+                                <Button
+                                    variant="outline"
+                                    className="bg-white/50 backdrop-blur-none cursor-pointer"
+                                >
+                                    <a href={exp.role_url}>
+                                        What i do in this role?
+                                    </a>
+                                    <ArrowRight />
+                                </Button>
+                            </div>
+                        </div>
+                    </SpotlightCard>
+                ))
+            }
+        </div>
+    </div>
+</section>

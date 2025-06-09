@@ -1,0 +1,88 @@
+---
+import SpotlightCard from "@/bits/SpotlightCard/SpotlightCard";
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardDescription,
+    CardContent,
+} from "./ui/card";
+import Threads from "@/bits/Threads/Threads";
+import { Image } from "astro:assets";
+
+import binus from "@/images/binus.png";
+import dumbways from "@/images/dumbways.png";
+import bakal from "@/images/bakal.png";
+
+const education = [
+    {
+        logo: binus,
+        institution: "BINUS University",
+        location: "Online | Malang, Indonesia",
+        degree: "Information System",
+        duration: "June 2022 - Present",
+        details: "GPA: 3.96/4.00",
+    },
+    {
+        logo: dumbways,
+        institution: "Dumbways",
+        location: "Online | South Tangerang, Indonesia",
+        degree: "Fullstack Developer",
+        duration: "November 2020 - January 2021",
+        details: "Online Coding Bootcamp",
+    },
+    {
+        logo: bakal,
+        institution: "SMK Negeri Bantarkalong",
+        location: "Tasikmalaya, Indonesia",
+        degree: "Software Engineering",
+        duration: "July 2017 - July 2020",
+        details: "Vocational High School",
+    },
+];
+---
+
+<section id="education" style="scroll-margin-top: 18px;">
+    <div
+        class="mx-auto max-w-4xl py-12 px-4 sm:px-8 md:px-12 lg:px-24 space-y-4"
+    >
+        <h2
+            class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8"
+        >
+            Education 🎓
+        </h2>
+        <div class="grid gap-8">
+            {
+                education.map((edu) => (
+                    <SpotlightCard
+                        spotlightColor="rgba(0, 229, 255, 0.2)"
+                        client:load
+                        className="group hover:shadow-lg shadow-sky-200 dark:shadow-sky-900 transition-transform duration-300"
+                    >
+                        <div>
+                            <div class="px-4 w-fit py-2 bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl text-lg flex items-center justify-center mb-4">
+                                <Image
+                                    src={edu.logo}
+                                    alt={edu.institution}
+                                    class="w-18"
+                                />
+                            </div>
+                            <div class="flex flex-col space-y-1.5 pb-6">
+                                <h3 class="text-2xl font-semibold leading-none tracking-tight">
+                                    {edu.institution}
+                                </h3>
+                                <p class="text-sm text-muted-foreground">
+                                    {edu.degree} • {edu.duration} •{" "}
+                                    {edu.details}
+                                </p>
+                            </div>
+                            <p class="text-sm text-muted-foreground">
+                                {edu.location}
+                            </p>
+                        </div>
+                    </SpotlightCard>
+                ))
+            }
+        </div>
+    </div>
+</section>

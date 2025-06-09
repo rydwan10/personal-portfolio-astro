@@ -1,0 +1,122 @@
+---
+import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
+import { Button } from "./ui/button";
+
+const contactInfo = {
+    email: "your.email@example.com",
+    phone: "+62 812-3456-7890",
+    location: "Jakarta, Indonesia",
+    social: [
+        {
+            name: "GitHub",
+            url: "https://github.com/yourusername",
+            icon: "github",
+        },
+        {
+            name: "LinkedIn",
+            url: "https://linkedin.com/in/yourusername",
+            icon: "linkedin",
+        },
+        {
+            name: "Twitter",
+            url: "https://twitter.com/yourusername",
+            icon: "twitter",
+        },
+    ],
+};
+---
+
+<section id="contact" style="scroll-margin-top: 18px;">
+    <div
+        class="mx-auto max-w-4xl py-12 px-4 sm:px-8 md:px-12 lg:px-24 space-y-4"
+    >
+        <h2
+            class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8"
+        >
+            Contact
+        </h2>
+        <div class="grid gap-6 md:grid-cols-2">
+            <Card>
+                <CardHeader>
+                    <CardTitle>Get in Touch</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div class="space-y-4">
+                        <div>
+                            <p
+                                class="text-sm font-medium text-muted-foreground"
+                            >
+                                Email
+                            </p>
+                            <a
+                                href={`mailto:${contactInfo.email}`}
+                                class="text-sm hover:underline"
+                            >
+                                {contactInfo.email}
+                            </a>
+                        </div>
+                        <div>
+                            <p
+                                class="text-sm font-medium text-muted-foreground"
+                            >
+                                Phone
+                            </p>
+                            <a
+                                href={`tel:${contactInfo.phone}`}
+                                class="text-sm hover:underline"
+                            >
+                                {contactInfo.phone}
+                            </a>
+                        </div>
+                        <div>
+                            <p
+                                class="text-sm font-medium text-muted-foreground"
+                            >
+                                Location
+                            </p>
+                            <p class="text-sm">{contactInfo.location}</p>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                    <CardTitle>Connect</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div class="flex flex-wrap gap-4">
+                        {
+                            contactInfo.social.map((social) => (
+                                <Button variant="outline" asChild>
+                                    <a
+                                        href={social.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {social.name}
+                                    </a>
+                                </Button>
+                            ))
+                        }
+                    </div>
+                    <div class="mt-6">
+                        <Button asChild>
+                            <a href="/resume.pdf" download> Download CV </a>
+                        </Button>
+                    </div>
+                </CardContent>
+            </Card>
+        </div>
+    </div>
+</section>
+
+<footer class="border-t py-6 md:py-0">
+    <div
+        class="mx-auto max-w-4xl py-12 px-4 sm:px-8 md:px-12 lg:px-24 space-y-4"
+    >
+        <p class="text-center text-sm leading-loose text-muted-foreground">
+            Built with Astro and Shadcn UI. © {new Date().getFullYear()} Muhammad
+            Rydwan. All rights reserved.
+        </p>
+    </div>
+</footer>

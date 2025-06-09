@@ -1,0 +1,91 @@
+---
+import SpotlightCard from "@/bits/SpotlightCard/SpotlightCard";
+import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
+
+const skillCategories = [
+    {
+        name: "Frontend Development",
+        skills: [
+            "Flutter",
+            "React.js",
+            "Angular",
+            "Swift",
+            "Node.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "HTML/CSS",
+        ],
+    },
+    {
+        name: "Backend Development",
+        skills: ["ASP.NET Core", "Node.js", "SQL", "MongoDB", "NestJS"],
+    },
+    {
+        name: "Tools & Technologies",
+        skills: [
+            "Git",
+            "Docker",
+            "Figma",
+            "Jira",
+            "Postman",
+            "VSCode",
+            "Xcode",
+            "Android Studio",
+            "Figma",
+        ],
+    },
+    {
+        name: "Soft Skills",
+        skills: [
+            "Team Leadership",
+            "Problem Solving",
+            "Communication",
+            "Agile Methodologies",
+        ],
+    },
+    {
+        name: "Languages",
+        skills: ["Indonesian", "English"],
+    },
+];
+---
+
+<section id="skills" style="scroll-margin-top: 18px;">
+    <div
+        class="mx-auto max-w-4xl py-12 px-4 sm:px-8 md:px-12 lg:px-24 space-y-4"
+    >
+        <h2
+            class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8"
+        >
+            Skills 💻
+        </h2>
+        <div class="grid gap-6 md:grid-cols-2">
+            {
+                skillCategories.map((category) => (
+                    <SpotlightCard
+                        client:load
+                        spotlightColor="rgba(0, 229, 255, 0.2)"
+                        className="group  hover:shadow-lg shadow-sky-200 dark:shadow-sky-900 transition-transform duration-300"
+                    >
+                        <div>
+                            <div class="mb-4">
+                                <h3 class="text-2xl font-semibold">
+                                    {category.name}
+                                </h3>
+                            </div>
+                            <div>
+                                <div class="flex flex-wrap gap-2">
+                                    {category.skills.map((skill) => (
+                                        <span class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium bg-secondary text-secondary-foreground">
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </SpotlightCard>
+                ))
+            }
+        </div>
+    </div>
+</section>
