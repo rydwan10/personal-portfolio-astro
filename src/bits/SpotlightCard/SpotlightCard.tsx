@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import React, { useRef, useState } from "react";
 
 interface Position {
@@ -53,12 +54,14 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`
-        group relative rounded-3xl
-        hover:shadow-lg shadow-sky-200 dark:shadow-sky-900
-        bg-white/10 dark:bg-black/10 backdrop-blur-md
-        border border-blue-300 overflow-hidden p-8
-        transition-all duration-300 ease-in-out ${className}`}
+      className={cn(
+        "group relative rounded-3xl",
+        "hover:shadow-lg shadow-sky-200 dark:shadow-sky-900",
+        "bg-white/10 dark:bg-[#272727]/20 backdrop-blur-md",
+        "border border-blue-300 overflow-hidden p-8",
+        "transition-all duration-300 ease-in-out",
+        className
+      )}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out"

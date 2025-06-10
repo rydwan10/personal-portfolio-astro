@@ -4,13 +4,17 @@ import AnimatedContent from "@/bits/AnimatedContent/AnimatedContent";
 import { Button } from "./ui/button";
 import { ArrowRight, FileDown } from "lucide-react";
 import { Image } from "astro:assets";
-import bnis from "@/images/bnis.png";
-import reku from "@/images/reku.png";
-import andal from "@/images/andal.webp";
+import IcRekuDark from "@/images/react_svg/ic_reku_dark";
+import IcRekuLight from "@/images/react_svg/ic_reku_light";
+import IcBnisDark from "@/images/react_svg/ic_bnis_dark";
+import IcBnisLight from "@/images/react_svg/ic_bnis_light";
+import IcAndalDark from "@/images/react_svg/ic_andal_dark";
+import IcAndalLight from "@/images/react_svg/ic_andal_light";
 
 const experiences = [
     {
-        logo: bnis,
+        lightLogo: IcBnisLight,
+        darkLogo: IcBnisDark,
         company: "PT BNI Sekuritas",
         companyUrl: "https://www.bnisekuritas.co.id/",
         role: "Mobile Developer",
@@ -26,7 +30,8 @@ const experiences = [
         role_url: "/bnis_role/",
     },
     {
-        logo: reku,
+        lightLogo: IcRekuLight,
+        darkLogo: IcRekuDark,
         company: "Reku.id",
         companyUrl: "https://reku.id/",
         role: "Mobile Developer",
@@ -41,7 +46,8 @@ const experiences = [
         role_url: "/reku_role/",
     },
     {
-        logo: andal,
+        lightLogo: IcAndalLight,
+        darkLogo: IcAndalDark,
         company: "Andal Software",
         companyUrl: "https://andalsoftware.com/",
         role: "Fullstack Developer",
@@ -57,23 +63,22 @@ const experiences = [
 ---
 
 <section id="experience" style="scroll-margin-top: 18px;">
-    <div
-        class="mx-auto max-w-4xl py-12 px-4 sm:px-8 md:px-12 lg:px-24 space-y-4"
-    >
+    <div class="mx-auto max-w-4xl py-12 px-6 space-y-4">
         <AnimatedContent client:load>
             <h2
                 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center"
             >
-                Experience 💼
+                Where I've Worked 💼
             </h2>
         </AnimatedContent>
-        <div class="grid gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {
                 experiences.map((exp, idx) => (
                     <AnimatedContent client:load>
                         <SpotlightCard
                             spotlightColor="rgba(0, 229, 255, 0.2)"
                             client:load
+                            className="h-full p-4"
                         >
                             <div>
                                 <div class="flex flex-col space-y-1.5 pb-6">
@@ -82,12 +87,13 @@ const experiences = [
                                         target="_blank"
                                         class="w-fit"
                                     >
-                                        <div class="flex items-center gap-2">
-                                            <Image
-                                                src={exp.logo}
-                                                alt={exp.company}
-                                                class="w-32"
-                                            />
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <div class="dark:hidden">
+                                                <exp.lightLogo className="w-32" />
+                                            </div>
+                                            <div class="hidden dark:block">
+                                                <exp.darkLogo className="w-32" />
+                                            </div>
                                         </div>
                                     </a>
                                     <h3 class="text-2xl font-semibold leading-none tracking-tight">
@@ -98,13 +104,13 @@ const experiences = [
                                         {exp.location}
                                     </p>
                                 </div>
-                                <div class="p-0">
+                                {/* <div class="p-0">
                                     <ul class="list-disc space-y-2 pl-4 text-sm text-muted-foreground">
                                         {exp.achievements.map((achievement) => (
                                             <li>{achievement}</li>
                                         ))}
                                     </ul>
-                                </div>
+                                </div> */}
 
                                 <div class="flex justify-end mt-4">
                                     <Button

@@ -10,180 +10,204 @@ import rydwan from "@/images/rydwan.png";
 ---
 
 <section
-    class="flex flex-col items-center justify-center space-y-4 min-h-screen text-center md:py-24"
+    class="flex flex-col items-center justify-center space-y-4 h-[calc(100vh-100px)] text-center md:py-24"
 >
     <div class="absolute top-0 left-0 w-full h-full z-[-1]">
         <!-- <Threads amplitude={2.5} distance={0.2} color={[1, 3, 29]} /> -->
     </div>
-    <div class="px-2">
-        <AnimatedContent client:load>
-            <Image
-                src={rydwan}
-                alt="Rydwan"
-                class="rounded-full mx-auto w-52 h-52 border border-sky-500 border-2 mb-2"
-            />
-        </AnimatedContent>
-        <BlurText
-            text="Hi, my name is"
-            client:load
-            delay={100}
-            animateBy="words"
-            direction="top"
-            className="text-xl md:text-3xl font-semibold text-muted-foreground text-center"
-        />
-
-        <BlurText
-            text="Muhammad Rydwan"
-            client:load
-            delay={150}
-            animateBy="words"
-            direction="top"
-            className="text-3xl mb-3 font-bold  md:text-5xl text-center"
-        />
-
-        <BlurText
-            text="and I'm a"
-            client:load
-            delay={300}
-            animateBy="words"
-            direction="top"
-            className="mx-auto mb-6 max-w-[700px] text-muted-foreground text-xl md:text-xl text-center lg:text-2xl font-semibold"
-        />
-
-        <AnimatedContent
-            client:load
-            distance={150}
-            direction="vertical"
-            reverse={false}
-            duration={1.2}
-            ease="power3.out"
-            initialOpacity={0}
-            animateOpacity
-            scale={1.1}
-            threshold={0}
-            delay={0.3}
+    <div class="px-2 md:px-8 w-full max-w-4xl">
+        <div
+            class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12"
         >
-            <div class="flex justify-center mb-4">
-                <RotatingText
-                    client:load
-                    texts={[
-                        "Mobile App Craftsman 📱",
-                        "Fullstack Developer 🛠️",
-                        "Software Engineer 💻",
-                        "Frontend Developer 🎨",
-                        "React Developer ⚛️",
-                        "Problem Solver 🧩",
-                        "Flutter Enjoyer 🦋",
-                        "Swift Enthusiast 🐦",
-                        "MacBook Pro User 💻",
-                        "Coffee Lover ☕",
-                    ]}
-                    mainClassName="text-xl text-center font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl  bg-cyan-600/80 text-white px-4 py-2 rounded-lg w-fit"
-                    staggerFrom={"last"}
-                    initial={{ y: "100%" }}
-                    animate={{ y: 0 }}
-                    exit={{ y: "-120%" }}
-                    staggerDuration={0.025}
-                    splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-                    transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                    rotationInterval={3000}
-                />
+            <div class="md:w-1/3">
+                <AnimatedContent client:load>
+                    <Image
+                        src={rydwan}
+                        alt="Rydwan"
+                        class="rounded-full mx-auto w-52 h-52 border-sky-500 border-2 mb-2"
+                    />
+                </AnimatedContent>
             </div>
-        </AnimatedContent>
-    </div>
-    <div class="flex flex-col sm:flex-row gap-2 justify-center">
-        <AnimatedContent
-            client:load
-            distance={50}
-            direction="horizontal"
-            duration={0.8}
-            delay={0.3}
-        >
-            <Button
-                variant="outline"
-                className="w-full sm:w-auto bg-white/50 backdrop-blur-none hover:bg-white/70 transition-colors"
-            >
-                <a
-                    href="https://github.com/rydwan10/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center justify-center w-full"
-                >
-                    <i class="devicon-github-original mr-2 dark:colored"></i>
-                    GitHub
-                </a>
-            </Button>
-        </AnimatedContent>
+            <div class="md:w-2/3 md:text-left">
+                <BlurText
+                    text="Hi, my name is"
+                    client:load
+                    delay={100}
+                    animateBy="words"
+                    direction="top"
+                    className="text-xl md:text-3xl font-semibold text-muted-foreground text-center md:text-left"
+                />
 
-        <AnimatedContent
-            client:load
-            distance={50}
-            direction="horizontal"
-            duration={0.8}
-            delay={0.5}
-        >
-            <Button
-                variant="outline"
-                className="w-full sm:w-auto bg-white/50 backdrop-blur-none hover:bg-white/70 transition-colors"
-            >
-                <a
-                    href="https://linkedin.com/in/muhammad-rydwan/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center justify-center w-full"
-                >
-                    <i class="devicon-linkedin-plain mr-2"></i>
+                <BlurText
+                    text="Muhammad Rydwan"
+                    client:load
+                    delay={150}
+                    animateBy="words"
+                    direction="top"
+                    className="text-3xl mb-3 font-bold md:text-5xl text-center md:text-left"
+                />
 
-                    LinkedIn
-                </a>
-            </Button>
-        </AnimatedContent>
+                <BlurText
+                    text="and I'm a"
+                    client:load
+                    delay={300}
+                    animateBy="words"
+                    direction="top"
+                    className="mb-6 max-w-[700px] text-muted-foreground text-xl md:text-xl text-center md:text-left lg:text-2xl font-semibold"
+                />
 
-        <AnimatedContent
-            client:load
-            distance={50}
-            direction="horizontal"
-            duration={0.8}
-            delay={0.7}
-        >
-            <Button
-                variant="outline"
-                className="w-full sm:w-auto bg-white/50 backdrop-blur-none hover:bg-white/70 transition-colors"
-            >
-                <a
-                    href="src/files/Muhammad_Rydwan_CV.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download
-                    class="flex items-center justify-center w-full"
+                <AnimatedContent
+                    client:load
+                    distance={150}
+                    direction="vertical"
+                    reverse={false}
+                    duration={1.2}
+                    ease="power3.out"
+                    initialOpacity={0}
+                    animateOpacity
+                    scale={1.1}
+                    threshold={0}
+                    delay={0.3}
                 >
-                    <FileDown className="mr-2" />
-                    Download CV
-                </a>
-            </Button>
-        </AnimatedContent>
+                    <div class="flex justify-center md:justify-start mb-4">
+                        <RotatingText
+                            client:load
+                            texts={[
+                                "Mobile App Craftsman 📱",
+                                "Fullstack Developer 🛠️",
+                                "Breakpoint Shooter 🎯",
+                                "Software Engineer 💻",
+                                "No.1 MS Teams Ringtone Fan 🎤",
+                                "Frontend Developer 🎨",
+                                "console.log Spammer 📨",
+                                "React Developer ⚛️",
+                                "Stack Overflow Scuba Diver 🌊",
+                                "Problem Solver 🧩",
+                                "Ctrl+C/V Specialist 📋",
+                                "Flutter Enjoyer 🦋",
+                                "Merge Conflict Resolver 🔄",
+                                "Swift Enthusiast 🐦",
+                                "ChatGPT Loyal Chatter 💬",
+                                "MacBook Pro User 💻",
+                                "TODO: add more roles later...",
+                                "TypeScript Lover 💙",
+                            ]}
+                            mainClassName="text-xl text-center font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl bg-cyan-600/80 text-white px-4 py-2 rounded-lg w-fit"
+                            staggerFrom={"last"}
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            exit={{ y: "-120%" }}
+                            staggerDuration={0.025}
+                            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                            transition={{
+                                type: "spring",
+                                damping: 30,
+                                stiffness: 400,
+                            }}
+                            rotationInterval={3000}
+                        />
+                    </div>
+                </AnimatedContent>
+                <div
+                    class="grid grid-cols-2 sm:flex gap-2 justify-center sm:justify-start w-full max-w-7xl"
+                >
+                    <AnimatedContent
+                        client:load
+                        distance={50}
+                        direction="horizontal"
+                        duration={0.8}
+                        delay={0.3}
+                    >
+                        <Button
+                            variant="outline"
+                            className="w-full sm:w-auto bg-white/50 backdrop-blur-none hover:bg-white/70 transition-colors"
+                        >
+                            <a
+                                href="https://github.com/rydwan10/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center justify-center w-full"
+                            >
+                                <i
+                                    class="devicon-github-original mr-2 dark:colored"
+                                ></i>
+                                GitHub
+                            </a>
+                        </Button>
+                    </AnimatedContent>
 
-        <AnimatedContent
-            client:load
-            distance={50}
-            direction="horizontal"
-            duration={0.8}
-            delay={0.9}
-        >
-            <Button
-                variant="outline"
-                className="w-full sm:w-auto bg-white/50 backdrop-blur-none hover:bg-white/70 transition-colors"
-            >
-                <a
-                    href="mailto:rydwan.dev@gmail.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center justify-center w-full"
-                >
-                    <Mail className="mr-2" />
-                    Email Me
-                </a>
-            </Button>
-        </AnimatedContent>
+                    <AnimatedContent
+                        client:load
+                        distance={50}
+                        direction="horizontal"
+                        duration={0.8}
+                        delay={0.5}
+                    >
+                        <Button
+                            variant="outline"
+                            className="w-full sm:w-auto bg-white/50 backdrop-blur-none hover:bg-white/70 transition-colors"
+                        >
+                            <a
+                                href="https://linkedin.com/in/muhammad-rydwan/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center justify-center w-full"
+                            >
+                                <i class="devicon-linkedin-plain mr-2"></i>
+
+                                LinkedIn
+                            </a>
+                        </Button>
+                    </AnimatedContent>
+
+                    <AnimatedContent
+                        client:load
+                        distance={50}
+                        direction="horizontal"
+                        duration={0.8}
+                        delay={0.7}
+                    >
+                        <Button
+                            variant="outline"
+                            className="w-full sm:w-auto bg-white/50 backdrop-blur-none hover:bg-white/70 transition-colors"
+                        >
+                            <a
+                                href="src/files/Muhammad_Rydwan_CV.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                download
+                                class="flex items-center justify-center w-full"
+                            >
+                                <FileDown className="mr-2" />
+                                Download CV
+                            </a>
+                        </Button>
+                    </AnimatedContent>
+
+                    <AnimatedContent
+                        client:load
+                        distance={50}
+                        direction="horizontal"
+                        duration={0.8}
+                        delay={0.9}
+                    >
+                        <Button
+                            variant="outline"
+                            className="w-full sm:w-auto bg-white/50 backdrop-blur-none hover:bg-white/70 transition-colors"
+                        >
+                            <a
+                                href="mailto:rydwan.dev@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center justify-center w-full"
+                            >
+                                <Mail className="mr-2" />
+                                Email Me
+                            </a>
+                        </Button>
+                    </AnimatedContent>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
