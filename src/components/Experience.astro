@@ -15,6 +15,32 @@ const experiences = [
     {
         lightLogo: IcBnisLight,
         darkLogo: IcBnisDark,
+        techStack: [
+            {
+                name: "Flutter",
+                icon: "devicon-flutter-plain colored mr-2 text-xl",
+            },
+            {
+                name: "Dart",
+                icon: "devicon-dart-plain colored mr-2 text-xl",
+            },
+            {
+                name: "Git",
+                icon: "devicon-git-plain colored mr-2 text-xl",
+            },
+            {
+                name: "GitLab",
+                icon: "devicon-gitlab-plain colored mr-2 text-xl",
+            },
+            {
+                name: "Swift",
+                icon: "devicon-swift-plain colored mr-2 text-xl",
+            },
+            {
+                name: "Kotlin",
+                icon: "devicon-kotlin-plain colored mr-2 text-xl",
+            },
+        ],
         company: "PT BNI Sekuritas",
         companyUrl: "https://www.bnisekuritas.co.id/",
         role: "Mobile Developer",
@@ -32,6 +58,32 @@ const experiences = [
     {
         lightLogo: IcRekuLight,
         darkLogo: IcRekuDark,
+        techStack: [
+            {
+                name: "Flutter",
+                icon: "devicon-flutter-plain colored mr-2 text-xl",
+            },
+            {
+                name: "Dart",
+                icon: "devicon-dart-plain colored mr-2 text-xl",
+            },
+            {
+                name: "Git",
+                icon: "devicon-git-plain colored mr-2 text-xl",
+            },
+            {
+                name: "GitHub",
+                icon: "devicon-github-plain colored mr-2 text-xl",
+            },
+            {
+                name: "Swift",
+                icon: "devicon-swift-plain colored mr-2 text-xl",
+            },
+            {
+                name: "Kotlin",
+                icon: "devicon-kotlin-plain colored mr-2 text-xl",
+            },
+        ],
         company: "Reku.id",
         companyUrl: "https://reku.id/",
         role: "Mobile Developer",
@@ -48,6 +100,40 @@ const experiences = [
     {
         lightLogo: IcAndalLight,
         darkLogo: IcAndalDark,
+        techStack: [
+            {
+                name: "C#",
+                icon: "devicon-csharp-plain colored mr-2 text-xl",
+            },
+            {
+                name: "ASP.NET Core",
+                icon: "devicon-dotnetcore-plain colored mr-2 text-xl",
+            },
+            {
+                name: "TypeScript",
+                icon: "devicon-typescript-original colored mr-2 text-xl",
+            },
+            {
+                name: "Angular",
+                icon: "devicon-angularjs-plain colored mr-2 text-xl",
+            },
+            {
+                name: "Git",
+                icon: "devicon-git-plain colored mr-2 text-xl",
+            },
+            {
+                name: "Azure",
+                icon: "devicon-azure-plain colored mr-2 text-xl",
+            },
+            {
+                name: "PostgreSQL",
+                icon: "devicon-postgresql-plain colored mr-2 text-xl",
+            },
+            {
+                name: "Apache Kafka",
+                icon: "devicon-apachekafka-plain  mr-2 text-xl",
+            },
+        ],
         company: "Andal Software",
         companyUrl: "https://andalsoftware.com/",
         role: "Fullstack Developer",
@@ -103,6 +189,14 @@ const experiences = [
                                         {exp.company} • {exp.duration} •{" "}
                                         {exp.location}
                                     </p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        {exp.techStack.map((skill) => (
+                                            <span class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium bg-secondary text-secondary-foreground">
+                                                <i class={skill.icon} />
+                                                {skill.name}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                                 {/* <div class="p-0">
                                     <ul class="list-disc space-y-2 pl-4 text-sm text-muted-foreground">
